@@ -345,6 +345,17 @@ header ul .last:hover a{
 .main_2{
 	width:1000px;
 	height:auto;
-	margin:20 auto 10 auto;
+	margin:20px auto 10px auto;
 	background: bisque;
+}
+.main_2 ul li{
+	float:left;
+}
+.main_2 ul li .goods{
+	width:316px;
+	height:366px;
+}
+.main_2 ul li .goods img{
+	width:316px;
+	height:316px;
 }

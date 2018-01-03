@@ -1,30 +1,45 @@
-var oUsername=document.getElementById('username');
-var oPassword=document.getElementById('password');
-var oLogin=document.getElementById('login');
+var oUsername=document.getElementById("username");
+var oPassword=document.getElementById("password");
+var oAutologin=document.getElementById("autoLogin");
+var oLogin=document.getElementById("login");
 oLogin.onclick=function(){
 	var strUsername=oUsername.value;
 	var strPassword=oPassword.value;
-	var xhr=new XMLHttpRequest();
-    xhr.onreadystatechange=function(){
- 	 if(xhr.readyState==4){
- 		if(xhr.status>=200&&xhr.status<300||xhr.status==304){
- 			console.log( xhr.responseText );
-				
-				var str = xhr.responseText;
-				
-				
-				var obj = JSON.parse(str);
-				
-				if (obj.code == 0) {
-					alert("登陆成功")
-				} else {
-					alert(obj.message)
+	var json={
+		"username":strUsername,
+		"password":strPassword,
+		"status":"login",	
+	}
+	loginOrRegister(json,function(obj){
+		if (obj.code == 0) {
+					alert("登陆成功");
+					if(oAutologin.checked==true){
+						localStorage.setItem("username",strUsername);
+						localStorage.setItem("password",strPassword);
+					}
+					location.href="../index.html";
+				}else {
+					alert(obj.message);
 				}
- 		}
- 	 }
-    }
-  
- 	xhr.open("POST", "http://h6.duchengjiu.top/shop/api_user.php", true);
- 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
- 	xhr.send("username="+strUsername+"&password="+strPassword+"&status=login")
+	});
 }
+window.onload=function(){
+	var strUsername=localStorage.getItem("username");
+	var strPassword=localStorage.getItem("password");
+	if(strUsername!=null&&strPassword!=null){
+		var json={
+		"username":strUsername,
+		"password":strPassword,
+		"status":"login",	
+	    }
+		loginOrRegister(json,function(obj){
+			if (obj.code == 0) {
+						alert("登陆成功");
+						location.href="../index.html";
+					}else {
+						alert(obj.message);
+					}
+		});
+	}
+}
+
