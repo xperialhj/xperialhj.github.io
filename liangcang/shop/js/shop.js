@@ -33,6 +33,7 @@ window.onmousewheel=function(event){
 		oNav.style.position="fixed";
 		oNav.style.top=0;
 		oNav.style.left=0;
+		oHeader.style.position="";
 	}else if(top>56&&direction==1){
 		oHeader.style.position="fixed";
 		oHeader.style.top=0;
