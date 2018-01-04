@@ -92,7 +92,7 @@ color: #oc79cc;
 	outline: none;
 	border:none;
 	float:right;
-	
+	padding-left:25px;"
 }
 #register{
 	width: 320px;height: 50px;
@@ -104,12 +104,14 @@ color: #oc79cc;
 	font-weight: bold;
 }
  #VC{
-	width: 245px;height: 50px;
+	width: 245px;
+	height: 50px;
 	font-size: 14px;
 	color: #fcfcfc;
 	background: #cbcbcb;
 	outline: none;
 	border:none;
+	padding-left:25px;
 	float:left;
 }
 input::-webkit-input-placeholder {
