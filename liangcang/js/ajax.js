@@ -32,3 +32,28 @@ for(var k in obj){
 str=str.substring(0,str.length-1);
 return(str);
 }
+
+function ajax(obj){
+	 var xhr=new XMLHttpRequest();
+     xhr.onreadystatechange=function(){
+ 	 if(xhr.readyState==4){
+ 		if(xhr.status>=200&&xhr.status<300||xhr.status==304){
+				var str = xhr.responseText;		
+				var json = JSON.parse(str);
+				obj.callback(json);
+ 		}
+ 	 }
+    }
+    if(obj.method=="GET"){
+    	var st=getString(obj.json);
+    	obj.url=obj.url+"?"+st;
+    }
+    xhr.open(obj.method, obj.url, true);
+    if(obj.method=="GET"){
+    	xhr.send();
+    }else{
+    	var st=getString(obj.json);
+ 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+ 		xhr.send(st);
+    }
+}
