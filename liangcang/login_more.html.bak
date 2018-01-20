@@ -30,7 +30,7 @@
 					<li><a href="#"><img src="img/doubannormal.png"/></a></li>
 					<li><a href="#"><img src="img/tengxunmouse.png"/></a></li>
 				</ul>
-				<a class="a1" href="../../register/register.html">注册粮仓</a>
+				<a class="a1" href="register.html">注册粮仓</a>
 			</div>
 			
 		</div>

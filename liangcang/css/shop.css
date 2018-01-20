@@ -217,7 +217,7 @@ header ul .last:hover a{
 	background: url(../img/icon.png) -167px -145px;
 	opacity: 1;
 	filter: alpha(opacity=100);
-	-webkit-transition: all .3s;
+	transition: opacity .3s;
 }
 .nav .search .searchkey:hover{
 	opacity: 0.5;
@@ -281,4 +281,22 @@ header ul .last:hover a{
 	color:dodgerblue;
 	text-align: left;
 	margin-bottom: 100px;
+}
+
+
+
+
+
+
+.page{
+	width:1000px;
+    height:50px;
+    margin:0 auto;
+}
+.page ul{
+	float:right;
+}
+.page ul li{
+	width:50px;
+	float:left;
 }

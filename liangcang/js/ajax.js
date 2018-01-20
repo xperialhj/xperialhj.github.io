@@ -53,6 +53,9 @@ function ajax(obj){
     	xhr.send();
     }else{
     	var st=getString(obj.json);
+    	if(obj.head){
+ 			xhr.setRequestHeader(obj.head, obj.headValue);
+ 		}
  		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
  		xhr.send(st);
     }
