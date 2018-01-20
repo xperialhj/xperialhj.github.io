@@ -46,13 +46,14 @@ MyPlane.prototype.start=function(){
 		})
 		// 触屏事件
 		var touchPlane=document.getElementsByClassName("myPlane")[0];
+		var oBox=document.getElementById("box");
 		touchPlane.addEventListener('touchstart', function(e) {
 //			console.log("ontouchstart");
 			
 			e = e.touches[0];
 			
-			var disX = e.clientX - self.ele.offsetLeft;
-			var disY = e.clientY - self.ele.offsetTop;
+			var disX = e.clientX - touchPlane.offsetLeft;
+			var disY = e.clientY - touchPlane.offsetTop;
 			
 			document.addEventListener('touchmove', function(evt) {
 				
@@ -61,7 +62,7 @@ MyPlane.prototype.start=function(){
 				
 				e = evt.touches[0];
 				
-				var x = e.clientX - gameEngine.ele.offsetLeft - disX;
+				var x = e.clientX - oBox.offsetLeft - disX;
 				var y = e.clientY - disY;
 				
 //				console.log("ontouchmove：", x, y);
@@ -70,8 +71,8 @@ MyPlane.prototype.start=function(){
 					x = 0;
 				}
 				
-				if (x > gameEngine.ele.offsetWidth - self.ele.offsetWidth) {
-					x = gameEngine.ele.offsetWidth - self.ele.offsetWidth;
+				if (x > oBox.offsetWidth - touchPlane.offsetWidth) {
+					x = oBox.offsetWidth - touchPlane.offsetWidth;
 				}
 				
 				touchPlane.style.left = x + "px";
