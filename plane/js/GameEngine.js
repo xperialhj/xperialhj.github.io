@@ -43,7 +43,7 @@ var gameEngine = {
 		    		   },3000)
 		    		   
 		    	    }
-		        },500)
+		        },1000)
 		    	
 	},
 	isTouch:function ($box1, $box2) {
