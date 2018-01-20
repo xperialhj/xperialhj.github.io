@@ -45,7 +45,8 @@ MyPlane.prototype.start=function(){
 			}
 		})
 		// 触屏事件
-		this.ele[0].addEventListener('touchstart', function(e) {
+		var touchPlane=document.getElementsByClassName("myplane")[0];
+		touchPlane.addEventListener('touchstart', function(e) {
 //			console.log("ontouchstart");
 			
 			e = e.touches[0];
