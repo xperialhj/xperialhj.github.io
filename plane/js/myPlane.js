@@ -286,7 +286,7 @@ function HaoShen(){
 	this.ele.css({left:"46%",top:-300});
 	this.ele.animate({top:0},2000);
 	this.ele.addClass("linian");
-	this.hp=1000;
+	this.hp=500;
 	this.speed=5;
 	this.id="LiNianOrochi";
 	this.hpBox=$("<div>HP</div>");
