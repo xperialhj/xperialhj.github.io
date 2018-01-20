@@ -44,6 +44,46 @@ MyPlane.prototype.start=function(){
 				self.move(x,y);
 			}
 		})
+		// 触屏事件
+		this.ele.addEventListener('touchstart', function(e) {
+//			console.log("ontouchstart");
+			
+			e = e.touches[0];
+			
+			var disX = e.clientX - self.ele.offsetLeft;
+			var disY = e.clientY - self.ele.offsetTop;
+			
+			document.addEventListener('touchmove', function(evt) {
+				
+				evt.preventDefault();
+				
+				
+				e = evt.touches[0];
+				
+				var x = e.clientX - gameEngine.ele.offsetLeft - disX;
+				var y = e.clientY - disY;
+				
+//				console.log("ontouchmove：", x, y);
+				
+				if (x < 0) {
+					x = 0;
+				}
+				
+				if (x > gameEngine.ele.offsetWidth - self.ele.offsetWidth) {
+					x = gameEngine.ele.offsetWidth - self.ele.offsetWidth;
+				}
+				
+				self.ele.style.left = x + "px";
+				self.ele.style.top = y + "px";
+				
+			});
+			
+			document.addEventListener('touchup', function() {
+				document.removeEventListener('touchmove');
+				document.removeEventListener('touchup');
+			});
+		})
+	
 		return this;
 	}
 MyPlane.prototype.move=function(x,y){
