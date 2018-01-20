@@ -45,7 +45,7 @@ MyPlane.prototype.start=function(){
 			}
 		})
 		// 触屏事件
-		var touchPlane=document.getElementsByClassName("myplane")[0];
+		var touchPlane=document.getElementsByClassName("myPlane")[0];
 		touchPlane.addEventListener('touchstart', function(e) {
 //			console.log("ontouchstart");
 			
@@ -74,8 +74,8 @@ MyPlane.prototype.start=function(){
 					x = gameEngine.ele.offsetWidth - self.ele.offsetWidth;
 				}
 				
-				self.ele.style.left = x + "px";
-				self.ele.style.top = y + "px";
+				touchPlane.style.left = x + "px";
+				touchPlane.style.top = y + "px";
 				
 			});
 			
